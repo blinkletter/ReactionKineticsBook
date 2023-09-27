@@ -394,13 +394,14 @@ A \xrightarrow{k_2} C\end{split}\]</div>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
+<span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/blinkletter/ReactionKineticsBook/main/&quot;</span>
 
 <span class="c1">#########################################</span>
 <span class="c1">### Setup a figure with a single plot ###</span>
 <span class="c1">### and choose a stylesheet           ###</span>
 <span class="c1">#########################################</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;S2_classic2.mplstyle&quot;</span><span class="p">)</span>                    <span class="c1"># This stylesheet must be in same folder as this notebook      </span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;S2_classic2.mplstyle&quot;</span><span class="p">)</span>                    <span class="c1"># This stylesheet must be in same folder as this notebook      </span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>  <span class="c1"># setup figure and plot (ax) within figure</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">margins</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">.07</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">.07</span><span class="p">,</span> <span class="n">tight</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>                     <span class="c1"># add 7% empty space around outside of plot area   </span>
 
@@ -411,12 +412,7 @@ A \xrightarrow{k_2} C\end{split}\]</div>
 
 <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;Mystery_Reaction.csv&quot;</span>
 
-<span class="n">github</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/blinkletter/LFER-QSAR/blob/main/physorgdata/&quot;</span>
-<span class="n">access_raw_data</span> <span class="o">=</span> <span class="s2">&quot;?raw=True&quot;</span>
-
-<span class="n">filename</span><span class="o">=</span> <span class="n">github</span><span class="o">+</span><span class="n">filename</span><span class="o">+</span><span class="n">access_raw_data</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>         <span class="c1"># Load data from .csv format into dataframe</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="n">filename</span><span class="p">)</span>         <span class="c1"># Load data from .csv format into dataframe</span>
 <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>                <span class="c1"># Show header and first three lines of dataframe</span>
 
 
@@ -542,7 +538,7 @@ A \xrightarrow{k_2} C\end{split}\]</div>
 <span class="c1">#####################</span>
 
 <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;Mystery_Reaction.csv&quot;</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>         <span class="c1"># Load data from .csv format into dataframe</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="n">filename</span><span class="p">)</span>         <span class="c1"># Load data from .csv format into dataframe</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>                   <span class="c1"># strip away any lines with &quot;NaN&quot; values (blanks)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>                <span class="c1"># Show header and first three lines of dataframe</span>
@@ -553,7 +549,7 @@ A \xrightarrow{k_2} C\end{split}\]</div>
 <span class="c1">### and choose a stylesheet                    ###</span>
 <span class="c1">##################################################</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;S2_classic2.mplstyle&quot;</span><span class="p">)</span>        
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;S2_classic2.mplstyle&quot;</span><span class="p">)</span>        
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>  
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">margins</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">.07</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">.07</span><span class="p">,</span> <span class="n">tight</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>                     <span class="c1"># add 7% empty space around outside of plot area   </span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">margins</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">.07</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">.07</span><span class="p">,</span> <span class="n">tight</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>                     <span class="c1"># add 7% empty space around outside of plot area   </span>
@@ -716,7 +712,7 @@ The rate consant for formation of Product B is 2.85
 <span class="c1">#####################</span>
 
 <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;Mystery_Reaction.csv&quot;</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>         <span class="c1"># Load data from .csv format into dataframe</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="n">filename</span><span class="p">)</span>         <span class="c1"># Load data from .csv format into dataframe</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>                   <span class="c1"># strip away any lines with &quot;NaN&quot; values (blanks)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>                <span class="c1"># Show header and first three lines of dataframe</span>
@@ -742,7 +738,7 @@ The rate consant for formation of Product B is 2.85
 <span class="c1">### and choose a stylesheet                    ###</span>
 <span class="c1">##################################################</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;S2_classic2.mplstyle&quot;</span><span class="p">)</span>        
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;S2_classic2.mplstyle&quot;</span><span class="p">)</span>        
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>  
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">margins</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">.07</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">.07</span><span class="p">,</span> <span class="n">tight</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>                     <span class="c1"># add 7% empty space around outside of plot area   </span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">margins</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">.07</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">.07</span><span class="p">,</span> <span class="n">tight</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>                     <span class="c1"># add 7% empty space around outside of plot area   </span>
@@ -897,7 +893,7 @@ The rate consant for formation of Product B is 2.85
 <span class="c1">#####################</span>
 
 <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;Mystery_Reaction.csv&quot;</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>         <span class="c1"># Load data from .csv format into dataframe</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="n">filename</span><span class="p">)</span>         <span class="c1"># Load data from .csv format into dataframe</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>                   <span class="c1"># strip away any lines with &quot;NaN&quot; values (blanks)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>                <span class="c1"># Show header and first three lines of dataframe</span>
@@ -919,7 +915,7 @@ The rate consant for formation of Product B is 2.85
 <span class="c1">### and choose a stylesheet                    ###</span>
 <span class="c1">##################################################</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;S2_classic2.mplstyle&quot;</span><span class="p">)</span>        
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;S2_classic2.mplstyle&quot;</span><span class="p">)</span>        
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>  
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">margins</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">.07</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">.07</span><span class="p">,</span> <span class="n">tight</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>                     <span class="c1"># add 7% empty space around outside of plot area   </span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">margins</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">.07</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">.07</span><span class="p">,</span> <span class="n">tight</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>                     <span class="c1"># add 7% empty space around outside of plot area   </span>
@@ -1085,7 +1081,7 @@ $<span class="math notranslate nohighlight">\( k_{obs} = k_1 + k_2 \)</span>$</p
 <span class="c1">#####################</span>
 
 <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;Mystery_Reaction.csv&quot;</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>         <span class="c1"># Load data from .csv format into dataframe</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="n">filename</span><span class="p">)</span>         <span class="c1"># Load data from .csv format into dataframe</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>                   <span class="c1"># strip away any lines with &quot;NaN&quot; values (blanks)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>                <span class="c1"># Show header and first three lines of dataframe</span>
@@ -1105,7 +1101,7 @@ $<span class="math notranslate nohighlight">\( k_{obs} = k_1 + k_2 \)</span>$</p
 <span class="c1">### and choose a stylesheet                    ###</span>
 <span class="c1">##################################################</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;S2_classic2.mplstyle&quot;</span><span class="p">)</span>        
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;S2_classic2.mplstyle&quot;</span><span class="p">)</span>        
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>  
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">margins</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">.07</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">.07</span><span class="p">,</span> <span class="n">tight</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>                     <span class="c1"># add 7% empty space around outside of plot area   </span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">margins</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">.07</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">.07</span><span class="p">,</span> <span class="n">tight</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>                     <span class="c1"># add 7% empty space around outside of plot area   </span>
