@@ -1,0 +1,10 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: start
+chapters:
+    - file: kinetics
+    - file: Problem_ch7_p5
+    - file: Problem_ch_7_p_9
+    - file: Problem_ch7_p11
