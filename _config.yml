@@ -4,7 +4,7 @@
 title: Plotting Reaction Kinetics
 author: Barry Linkletter
 logo: plot.png
-copyright: "2022"  # Copyright year to be placed in the footer
+copyright: "2023"  # Copyright year to be placed in the footer
 exclude_patterns: [_build, _files, Thumbs.db, .DS_Store, "**.ipynb_checkpoints"]
 
 # Force re-execution of notebooks on each build.
